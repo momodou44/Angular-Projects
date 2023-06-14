@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div>
+        <h2 class="mt-5">Liste des produits</h2>
+    </div>
+    <form [formGroup]="searchGroup" (ngSubmit)="handleSearchProduct()" >
+        <div class="input-group">
+            <label class="input-group-text">Keyword: </label>
+            <input type="text"  class="form-control" formControlName="keyword"/>
+            <button class="btn btn-info">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th >ID</th>
+                <th >Name</th>
+                <th >Price</th>
+                <th>Promotion</th>
+        
+            </tr>
+        </thead>
+        <tbody *ngFor="let p of products">
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <th><i class="bi bi-heart-fill" *ngIf="p.promotion == true"></i></th>
+                <td>
+                    <button *ngIf="p.promotion == true" class="btn btn-danger" (click)="enablePromo(p)" id="btn-enable">
+                        Promo off
+                    </button>
+                    <button *ngIf="p.promotion == false" class="btn btn-success" (click)="enablePromo(p)" id="btn-enable">
+                        Promo on
+                    </button>
+                </td>
+                <td>
+                    <button (click)="handleDeleteProducts(p)"><i class="bi bi-trash text-danger" ></i></button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>

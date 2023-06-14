@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <div class="card mt-5">
+
+            <div class="card-header">Authentication</div>
+            <div class="card-body">
+                <div class="form" [formGroup]="userFormGroup">
+                    <div class="mb-2">
+                        <label class="form-label me-2">Username</label>
+
+                        <input type="text" formControlName="username">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label me-2">Password</label>
+                        <input type="password" formControlName="password">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
